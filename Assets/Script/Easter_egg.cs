@@ -1,35 +1,35 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Easter_egg : MonoBehaviour
 {
     public GameManager manager;
-    BoxCollider2D floorCol; //ÀÌ½ºÅÍ¿¡±×·Î °¡´Â ¹°¸®ÀûÀÎ ±æ(Äİ¶óÀÌ´õ)
+    BoxCollider2D floorCol; //ì´ìŠ¤í„°ì—ê·¸ë¡œ ê°€ëŠ” ë¬¼ë¦¬ì ì¸ ê¸¸(ì½œë¼ì´ë”)
 
     private void Awake()
     {
         floorCol = GetComponent<BoxCollider2D>(); 
-        floorCol.enabled = false; //ÀÌ½ºÅÍ¿¡±×·Î °¡´Â ±æÀ» ºñÈ°¼ºÈ­
+        floorCol.enabled = false; //ì´ìŠ¤í„°ì—ê·¸ë¡œ ê°€ëŠ” ê¸¸ì„ ë¹„í™œì„±í™”
     }
     private void Update()
     {
-        if(manager.secT > 10) //Å¸ÀÌ¸Ó°¡ 10ÃÊ°¡ ³Ñ¾î°¡¸é
+        if(manager.secT > 10) //íƒ€ì´ë¨¸ê°€ 10ì´ˆê°€ ë„˜ì–´ê°€ë©´
         {
-            floorCol.enabled = true; //ÀÌ½ºÅÍ¿¡±×·Î ÇâÇÏ´Â ±æÀÌ È°¼ºÈ­
+            floorCol.enabled = true; //ì´ìŠ¤í„°ì—ê·¸ë¡œ í–¥í•˜ëŠ” ê¸¸ì´ í™œì„±í™”
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î°¡ ´êÀ¸¸é
+        if(collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ê°€ ë‹¿ìœ¼ë©´
         {
-            manager.stageLevel[0].SetActive(false); //ÇöÀç ½ºÅ×ÀÌÁö¸¦ ºñÈ°¼ºÈ­
-            manager.stageLevel[3].SetActive(true); //ÀÌ½ºÅÍ¿¡±× ½ºÅ×ÀÌÁö¸¦ È°¼ºÈ­
+            manager.stageLevel[0].SetActive(false); //í˜„ì¬ ìŠ¤í…Œì´ì§€ë¥¼ ë¹„í™œì„±í™”
+            manager.stageLevel[3].SetActive(true); //ì´ìŠ¤í„°ì—ê·¸ ìŠ¤í…Œì´ì§€ë¥¼ í™œì„±í™”
 
-            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //´êÀº Äİ¶óÀÌ´õÀÇ playerInfo ½ºÅ©¸³Æ®¸¦ °¡Á®¿È
-            player.transform.position = player.startPos; //ÇÃ·¹ÀÌ¾î À§Ä¡ ½ÃÀÛÀ§Ä¡·Î º¯°æ
+            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //ë‹¿ì€ ì½œë¼ì´ë”ì˜ playerInfo ìŠ¤í¬ë¦½íŠ¸ë¥¼ ê°€ì ¸ì˜´
+            player.transform.position = player.startPos; //í”Œë ˆì´ì–´ ìœ„ì¹˜ ì‹œì‘ìœ„ì¹˜ë¡œ ë³€ê²½
 
-            //Å¸ÀÌ¸Ó ºñÈ°¼ºÈ­
+            //íƒ€ì´ë¨¸ ë¹„í™œì„±í™”
             manager.TimeMinUI.enabled = false; 
             manager.TimeSecUI.enabled = false;
         }
