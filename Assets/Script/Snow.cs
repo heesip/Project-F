@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +6,11 @@ public class Snow : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 2.2f); //½ÃÀÛ ÈÄ(»ı¼º ÈÄ) 2.2ÃÊ µÚ ÀÚ½ÅÀ» ÆÄ±«
+        Destroy(gameObject, 2.2f); //ì‹œì‘ í›„(ìƒì„± í›„) 2.2ì´ˆ ë’¤ ìì‹ ì„ íŒŒê´´
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject); //´Ù¸¥ Äİ¶óÀÌ´õ¿Í ¹°¸®Àû Ãæµ¹ÀÌ ÀÏ¾î³ª¸é ÀÚ½ÅÀ» ÆÄ±«
+        Destroy(gameObject); //ë‹¤ë¥¸ ì½œë¼ì´ë”ì™€ ë¬¼ë¦¬ì  ì¶©ëŒì´ ì¼ì–´ë‚˜ë©´ ìì‹ ì„ íŒŒê´´ 
     }
 }

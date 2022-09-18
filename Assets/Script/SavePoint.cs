@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
-    AudioSource saveSound;//¼¼ÀÌºê »ç¿îµå 
-     
+    AudioSource saveSound;//ì„¸ì´ë¸Œ ì‚¬ìš´ë“œ 
+
     private void Awake()
     {
         saveSound = GetComponent<AudioSource>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") //¼¼ÀÌºêÆ÷ÀÎÆ®¿¡ ´êÀº Äİ¶óÀÌ´õ°¡ ÇÃ·¹ÀÌ¾î¸é
+        if (collision.gameObject.tag == "Player") //ì„¸ì´ë¸Œí¬ì¸íŠ¸ì— ë‹¿ì€ ì½œë¼ì´ë”ê°€ í”Œë ˆì´ì–´ë©´
         {
-            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //ÇÃ·¹ÀÌ¾î Á¤º¸¸¦ °¡Á®¿À°í
-            player.savePos = transform.position; //ÇÃ·¹ÀÌ¾î ¼¼ÀÌºê ÁöÁ¡À» Çö ¼¼ÀÌºê Æ÷ÀÎÆ® ÁöÁ¡À¸·Î º¯°æ
-            saveSound.Play(); //»ç¿îµå Àç»ı
+            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //í”Œë ˆì´ì–´ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê³ 
+            player.savePos = transform.position; //í”Œë ˆì´ì–´ ì„¸ì´ë¸Œ ì§€ì ì„ í˜„ ì„¸ì´ë¸Œ í¬ì¸íŠ¸ ì§€ì ìœ¼ë¡œ ë³€ê²½
+            saveSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
         }
     }
 }

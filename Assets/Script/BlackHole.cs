@@ -1,31 +1,31 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BlackHole : MonoBehaviour
 {
-    SpriteRenderer blackHole_Ren; //ºí·¢È¦ ÀÌ¹ÌÁö
+    SpriteRenderer blackHole_Ren; //ë¸”ë™í™€ ì´ë¯¸ì§€
     public PlayerInfo player;
     private void Awake()
     {
         blackHole_Ren = GetComponent<SpriteRenderer>();
-        blackHole_Ren.enabled = false; //ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­
+        blackHole_Ren.enabled = false; //ì´ë¯¸ì§€ë¥¼ ë¹„í™œì„±í™”
 
     }
     private void Update()
     {
-        if (player.rebon == true) //ÇÃ·¹ÀÌ¾î ºÎÈ°½Ã 
+        if (player.rebon == true) //í”Œë ˆì´ì–´ ë¶€í™œì‹œ 
         {
-            blackHole_Ren.enabled = false;  //ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­
+            blackHole_Ren.enabled = false;  //ì´ë¯¸ì§€ë¥¼ ë¹„í™œì„±í™”
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //ºí·¢È¦ ¹üÀ§¾ÈÀ¸·Î ÇÃ·¹ÀÌ¾î°¡ µé¾î¿À¸é
+        if (collision.gameObject.tag == "Player") //ë¸”ë™í™€ ë²”ìœ„ì•ˆìœ¼ë¡œ í”Œë ˆì´ì–´ê°€ ë“¤ì–´ì˜¤ë©´
         {
-            blackHole_Ren.enabled = true; //ÀÌ¹ÌÁö¸¦ È°¼ºÈ­
+            blackHole_Ren.enabled = true; //ì´ë¯¸ì§€ë¥¼ í™œì„±í™”
         }
     }
 
-   
+
 }

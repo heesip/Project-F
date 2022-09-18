@@ -1,33 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HintBox : MonoBehaviour
 {
-    public GameObject hintUI; //ÈùÆ®UI
-    AudioSource boxSound; //ÈùÆ® ¹Ú½º »ç¿îµå
+    public GameObject hintUI; //íŒíŠ¸UI
+    AudioSource boxSound; //íŒíŠ¸ ë°•ìŠ¤ ì‚¬ìš´ë“œ
     private void Awake()
     {
         boxSound = GetComponent<AudioSource>();
         hintUI.SetActive(false);
     }
-    private void OnCollisionEnter2D(Collision2D collision) 
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹½Ã
+        if (collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ì™€ ì¶©ëŒì‹œ
         {
-            //ÈùÆ® ÄÚ·çÆ¾ ÀÛµ¿
-            StopCoroutine("Hint"); 
+            //íŒíŠ¸ ì½”ë£¨í‹´ ì‘ë™
+            StopCoroutine("Hint");
             StartCoroutine("Hint");
         }
     }
-    IEnumerator Hint() //ÈùÆ® ÄÚ·çÆ¾
+    IEnumerator Hint() //íŒíŠ¸ ì½”ë£¨í‹´
     {
         yield return null;
-        boxSound.Play(); //»ç¿îµå Àç»ı
-        hintUI.SetActive(true); //ÈùÆ® È°¼ºÈ­
-        yield return new WaitForSeconds(2f); //2ÃÊ ÈÄ
-        hintUI.SetActive(false); //ÈùÆ® ºñÈ°¼ºÈ­
+        boxSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
+        hintUI.SetActive(true); //íŒíŠ¸ í™œì„±í™”
+        yield return new WaitForSeconds(2f); //2ì´ˆ í›„
+        hintUI.SetActive(false); //íŒíŠ¸ ë¹„í™œì„±í™”
 
     }
 }

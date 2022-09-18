@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    public GameManager manager; //°ÔÀÓ ¸Å´ÏÀú
-    AudioSource finsihSound; //µµÂø »ç¿îµå
+    public GameManager manager; //ê²Œì„ ë§¤ë‹ˆì €
+    AudioSource finsihSound; //ë„ì°© ì‚¬ìš´ë“œ
     private void Awake()
     {
         finsihSound = GetComponent<AudioSource>();
     }
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î°¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ê°€ ë‹¿ìœ¼ë©´
         {
-            manager.ClearUI.SetActive(true); //Å¬¸®¾î UI¸¦ È°¼ºÈ­
-            manager.timerStart = false; //Å¸ÀÌ¸Ó ÀÏ½ÃÁ¤Áö
-            finsihSound.Play(); //»ç¿îµå Àç»ı
+            manager.ClearUI.SetActive(true); //í´ë¦¬ì–´ UIë¥¼ í™œì„±í™”
+            manager.timerStart = false; //íƒ€ì´ë¨¸ ì¼ì‹œì •ì§€
+            finsihSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
         }
     }
 

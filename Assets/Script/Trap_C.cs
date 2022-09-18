@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap_C : Trap_Factory
 {
-    AudioSource operateSound; //ÇÔÁ¤ ÀÛµ¿ »ç¿îµå
+    AudioSource operateSound; //í•¨ì • ì‘ë™ ì‚¬ìš´ë“œ
 
     private void Awake()
     {
@@ -13,33 +13,31 @@ public class Trap_C : Trap_Factory
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //ÇÔÁ¤¿¡ ÁöÁ¤µÈ Äİ¶óÀÌ´õ¿¡ ÇÃ·¹ÀÌ¾î°¡ µé¾î¿À¸é
+        if (collision.gameObject.tag == "Player") //í•¨ì •ì— ì§€ì •ëœ ì½œë¼ì´ë”ì— í”Œë ˆì´ì–´ê°€ ë“¤ì–´ì˜¤ë©´
         {
-            operate = true; //ÇÔÁ¤ ½ºÀ§Ä¡ È°¼ºÈ­
-            operateSound.Play(); //»ç¿îµå ½ÇÇà
+            operate = true; //í•¨ì • ìŠ¤ìœ„ì¹˜ í™œì„±í™”
+            operateSound.Play(); //ì‚¬ìš´ë“œ ì‹¤í–‰
         }
     }
 
     private void Update()
     {
-        if (player.rebon == true) //Ä³¸¯ÅÍ°¡ ºÎÈ°½Ã 
+        if (player.rebon == true) //ìºë¦­í„°ê°€ ë¶€í™œì‹œ 
         {
-            Trap_OFF(); //ÇÔÁ¤ ºñÈ°¼ºÈ­
-            transform.rotation = Quaternion.Euler(0, 0, 0); //È¸Àü Á¤Áö
+            Trap_OFF(); //í•¨ì • ë¹„í™œì„±í™”
+            transform.rotation = Quaternion.Euler(0, 0, 0); //íšŒì „ ì •ì§€
         }
 
-
-
-        else if (operate == true) //ÇÔÁ¤ ½ºÀ§Ä¡°¡ È°¼ºÈ­½Ã
+        else if (operate == true) //í•¨ì • ìŠ¤ìœ„ì¹˜ê°€ í™œì„±í™”ì‹œ
         {
-            Trap_ON(); //ÇÔÁ¤ ÀÛµ¿
-            transform.Rotate(0, 0, -300 * Time.deltaTime); //ÇÔÁ¤ ¿ÀºêÁ§Æ® È¸Àü
+            Trap_ON(); //í•¨ì • ì‘ë™
+            transform.Rotate(0, 0, -300 * Time.deltaTime); //í•¨ì • ì˜¤ë¸Œì íŠ¸ íšŒì „
         }
 
-        if (transform.position == target) //ÇÔÁ¤ÀÌ ¸ñÇ¥À§Ä¡¿¡ µµ´ŞÇÏ¸é
+        if (transform.position == target) //í•¨ì •ì´ ëª©í‘œìœ„ì¹˜ì— ë„ë‹¬í•˜ë©´
         {
-            operate = false; //ÇÔÁ¤ ½ºÀ§Ä¡ ºñÈ°¼ºÈ­
-            transform.rotation = Quaternion.Euler(0, 0, 0); //È¸Àü Á¤Áö
+            operate = false; //í•¨ì • ìŠ¤ìœ„ì¹˜ ë¹„í™œì„±í™”
+            transform.rotation = Quaternion.Euler(0, 0, 0); //íšŒì „ ì •ì§€
 
         }
     }

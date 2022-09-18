@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,18 +6,18 @@ public class Gravity : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î°¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ê°€ ë‹¿ìœ¼ë©´
         {
-            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //ÇÃ·¹ÀÌ¾î Á¤º¸¸¦ ÇÒ´çÇÏ°í
-            player.rigid.gravityScale = 5.5f; //ÇÃ·¹ÀÌ¾î°¡ ¹Ş´Â Áß·ÂÀ» 5.5·Î º¯°æ
+            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //í”Œë ˆì´ì–´ ì •ë³´ë¥¼ í• ë‹¹í•˜ê³ 
+            player.rigid.gravityScale = 5.5f; //í”Œë ˆì´ì–´ê°€ ë°›ëŠ” ì¤‘ë ¥ì„ 5.5ë¡œ ë³€ê²½
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î°¡ ºüÁ®³ª°¡¸é
+        if (collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ê°€ ë¹ ì ¸ë‚˜ê°€ë©´
         {
-            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //ÇÃ·¹ÀÌ¾î Á¤º¸¸¦ ÇÒ´çÇÏ°í
-            player.rigid.gravityScale = player.playerGravity; //ÇÃ·¹ÀÌ¾î°¡ ¹Ş´Â Áß·ÂÀ» ÀÌÀüÀ¸·Î º¯°æ
+            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //í”Œë ˆì´ì–´ ì •ë³´ë¥¼ í• ë‹¹í•˜ê³ 
+            player.rigid.gravityScale = player.playerGravity; //í”Œë ˆì´ì–´ê°€ ë°›ëŠ” ì¤‘ë ¥ì„ ì´ì „ìœ¼ë¡œ ë³€ê²½
 
         }
     }

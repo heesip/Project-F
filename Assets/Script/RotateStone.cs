@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,6 @@ public class RotateStone : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, speed * Time.deltaTime); //Æ¯Á¤ ¼Óµµ¿¡ ¸Â°Ô zÃàÀ¸·Î È¸Àü
+        transform.Rotate(0, 0, speed * Time.deltaTime); //íŠ¹ì • ì†ë„ì— ë§ê²Œ zì¶•ìœ¼ë¡œ íšŒì „ 
     }
 }

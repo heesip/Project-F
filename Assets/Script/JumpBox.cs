@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpBox : MonoBehaviour
 {
-    AudioSource boxSound; //Á¡ÇÁ ¹Ú½º »ç¿îµå
-    public float boxPower; //¹Ú½º ÆÄ¿ö
+    AudioSource boxSound; //ì í”„ ë°•ìŠ¤ ì‚¬ìš´ë“œ
+    public float boxPower; //ë°•ìŠ¤ íŒŒì›Œ
 
     private void Awake()
     {
@@ -13,12 +13,12 @@ public class JumpBox : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //Äİ¶óÀÌ´õ¿¡ ÇÃ·¹ÀÌ¾î°¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //ì½œë¼ì´ë”ì— í”Œë ˆì´ì–´ê°€ ë‹¿ìœ¼ë©´
         {
-            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //ÇÃ·¹ÀÌ¾î Á¤º¸¸¦ ÇÒ´çÇÏ°í
-            player.rigid.AddForce(Vector2.up * boxPower, ForceMode2D.Impulse); //ÇÃ·¹ÀÌ¾î¸¦ ÆÄ¿ö Èû ¸¸Å­ °­Á¦·Î Á¡ÇÁ½ÃÅ´
-            boxSound.Play(); //»ç¿îµå Àç»ı
+            PlayerInfo player = collision.GetComponent<PlayerInfo>(); //í”Œë ˆì´ì–´ ì •ë³´ë¥¼ í• ë‹¹í•˜ê³ 
+            player.rigid.AddForce(Vector2.up * boxPower, ForceMode2D.Impulse); //í”Œë ˆì´ì–´ë¥¼ íŒŒì›Œ í˜ ë§Œí¼ ê°•ì œë¡œ ì í”„ì‹œí‚´
+            boxSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
         }
     }
-    
+
 }

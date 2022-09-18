@@ -1,39 +1,39 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    public float spawnRateMin = 0.3f; //»ı¼º ÁÖ±â ÃÖ¼Ò°ª
-    public float spawnRateMax = 0.7f; //»ı¼º ÁÖ±â ÃÖ´ë°ª
-    public float spawnRate; //»ı¼º ÁÖ±â 
-    public float spawnTimer; //»ı¼ºÅ¸ÀÌ¸Ó
+    public float spawnRateMin = 0.3f; //ìƒì„± ì£¼ê¸° ìµœì†Œê°’
+    public float spawnRateMax = 0.7f; //ìƒì„± ì£¼ê¸° ìµœëŒ€ê°’
+    public float spawnRate; //ìƒì„± ì£¼ê¸° 
+    public float spawnTimer; //ìƒì„±íƒ€ì´ë¨¸
 
-    public GameObject snowPrefab; //´« ÇÁ¸®ÆÕ
-    public Transform [] pos; //´«À» ³»¸®°ÔÇÒ À§Ä¡ ¹è¿­·Î Àâ¾ÆÁÜ 
-    public bool cloudSwitch; //ÀÛµ¿ ½ºÀ§Ä¡
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
+    public GameObject snowPrefab; //ëˆˆ í”„ë¦¬íŒ¹
+    public Transform[] pos; //ëˆˆì„ ë‚´ë¦¬ê²Œí•  ìœ„ì¹˜ ë°°ì—´ë¡œ ì¡ì•„ì¤Œ 
+    public bool cloudSwitch; //ì‘ë™ ìŠ¤ìœ„ì¹˜
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
 
 
-   
-    public void Snow_Spawn1() //´« 1¹ø ¼ÒÈ¯
+
+    public void Snow_Spawn1() //ëˆˆ 1ë²ˆ ì†Œí™˜
     {
-        GameObject snow1 = Instantiate(snowPrefab, pos[0]); //pos 0¹ø¿¡ »ı¼º
+        GameObject snow1 = Instantiate(snowPrefab, pos[0]); //pos 0ë²ˆì— ìƒì„±
     }
-    public void Snow_Spawn2() //´« 2¹ø ¼ÒÈ¯
+    public void Snow_Spawn2() //ëˆˆ 2ë²ˆ ì†Œí™˜
     {
-        GameObject snow2 = Instantiate(snowPrefab, pos[1]); //pos 1¹ø¿¡ »ı¼º
+        GameObject snow2 = Instantiate(snowPrefab, pos[1]); //pos 1ë²ˆì— ìƒì„±
     }
-    public void Snow_Spawn3() //´« 3¹ø ¼ÒÈ¯
-    {        
-        GameObject snow3 = Instantiate(snowPrefab, pos[2]); //pos 2¹ø¿¡ »ı¼º       
+    public void Snow_Spawn3() //ëˆˆ 3ë²ˆ ì†Œí™˜
+    {
+        GameObject snow3 = Instantiate(snowPrefab, pos[2]); //pos 2ë²ˆì— ìƒì„±       
     }
 
-    public void Operate() //´« »ı¼º ÀÛµ¿ ÇÔ¼ö
+    public void Operate() //ëˆˆ ìƒì„± ì‘ë™ í•¨ìˆ˜
     {
-        spawnTimer = 0f; //»ı¼º Å¸ÀÌ¸Ó 0À¸·Î ÃÊ±âÈ­
+        spawnTimer = 0f; //ìƒì„± íƒ€ì´ë¨¸ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 
-        spawnRate = Random.Range(spawnRateMin, spawnRateMax); //»ı¼ºÁÖ±â¸¦ ÃÖ¼Ò°ª°ú ÃÖ´ë°ª»çÀÌ ·£´ıÀ¸·Î ¼³Á¤
+        spawnRate = Random.Range(spawnRateMin, spawnRateMax); //ìƒì„±ì£¼ê¸°ë¥¼ ìµœì†Œê°’ê³¼ ìµœëŒ€ê°’ì‚¬ì´ ëœë¤ìœ¼ë¡œ ì„¤ì •
 
     }
 

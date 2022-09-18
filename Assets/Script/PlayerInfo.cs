@@ -12,7 +12,7 @@ public class PlayerInfo : MonoBehaviour
     public GameObject dieSound; //플레이어 사망 사운드
     public GameManager manager; //게임매니저
 
-    
+
     public Vector3 startPos = new Vector3(-7, -0.5f, 1); //시작 위치
     public Vector3 savePos; //세이브 위치
 
@@ -40,7 +40,7 @@ public class PlayerInfo : MonoBehaviour
         savePos = startPos; //세이브 지점은 시작 지점으로 돌림
 
         //플레이어가 받는 기본 중력값은 지구 중력 값
-        playerGravity = earthGravity; 
+        playerGravity = earthGravity;
         rigid.gravityScale = playerGravity;
         Instance = this;
     }
@@ -53,7 +53,7 @@ public class PlayerInfo : MonoBehaviour
         if (Input.GetButtonDown("ReStart")) //Restart버튼을 누르면 (R)
         {
             //부활 코루틴
-            StopCoroutine(Rebon()); 
+            StopCoroutine(Rebon());
             StartCoroutine(Rebon());
         }
         if (isdead != true)  // 플레이어 사망상태가 비활성화면
@@ -61,12 +61,12 @@ public class PlayerInfo : MonoBehaviour
             if (Input.GetButton("Horizontal")) //좌우 방향키를 누르면 
                 playerRen.flipX = Input.GetAxisRaw("Horizontal") == -1; //좌우에 맞게 캐릭터 방향전환
         }
-        
-         
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision) //플레이어가 닿으면
     {
-        if(collision.gameObject.tag == "Fake") //플레이어가 Fake지형에 들어가 콜라이더에 닿으면
+        if (collision.gameObject.tag == "Fake") //플레이어가 Fake지형에 들어가 콜라이더에 닿으면
         {
             jumpCnt = jumpLimit; //점프카운트를 점프 수치로 변경하여 점프를 하지 못하게 만듬
         }
@@ -74,13 +74,13 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) //플레이어가 콜라이더와 충돌하면
     {
-        
-        if(collision.gameObject.tag == "Trap" || collision.gameObject.tag == "Enemy") //충돌 대상이 함정이나 적일때
+
+        if (collision.gameObject.tag == "Trap" || collision.gameObject.tag == "Enemy") //충돌 대상이 함정이나 적일때
         {
             Die(); //사망
         }
     }
-  
+
     public void Die() //사망 함수
     {
         isdead = true; //사망상태 활성화
@@ -112,5 +112,5 @@ public class PlayerInfo : MonoBehaviour
         yield return new WaitForSeconds(0.3f); //0.3초 후 
         rebon = false; //부활 상태 비활성화 
 
-    }   
+    }
 }

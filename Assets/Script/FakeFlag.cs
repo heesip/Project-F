@@ -1,33 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FakeFlag : MonoBehaviour
 {
-    AudioSource fakeFlagSound; //ÆäÀÌÅ© ±ê¹ß »ç¿îµå
-    SpriteRenderer ren; //±ê¹ß ÀÌ¹ÌÁö
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
+    AudioSource fakeFlagSound; //í˜ì´í¬ ê¹ƒë°œ ì‚¬ìš´ë“œ
+    SpriteRenderer ren; //ê¹ƒë°œ ì´ë¯¸ì§€
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
 
     private void Awake()
     {
         fakeFlagSound = GetComponent<AudioSource>();
         ren = GetComponent<SpriteRenderer>();
-        ren.enabled = true; //ÀÌ¹ÌÁö È°¼ºÈ­
+        ren.enabled = true; //ì´ë¯¸ì§€ í™œì„±í™”
 
     }
     private void Update()
     {
-        if (player.rebon == true) //ÇÃ·¹ÀÌ¾î ºÎÈ°½Ã
+        if (player.rebon == true) //í”Œë ˆì´ì–´ ë¶€í™œì‹œ
         {
-            ren.enabled = true; //ÀÌ¹ÌÁö È°¼ºÈ­
+            ren.enabled = true; //ì´ë¯¸ì§€ í™œì„±í™”
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //ÇÃ·¹ÀÌ¾î°¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //í”Œë ˆì´ì–´ê°€ ë‹¿ìœ¼ë©´
         {
-            ren.enabled = false; //ÀÌ¹ÌÁö ºñÈ°¼ºÈ­
-            fakeFlagSound.Play(); //»ç¿îµå Àç»ı
+            ren.enabled = false; //ì´ë¯¸ì§€ ë¹„í™œì„±í™”
+            fakeFlagSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ 
         }
 
 

@@ -1,40 +1,40 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cloud_OFF : Cloud
 {
-    AudioSource switchSound; //½ºÀ§Ä¡ »ç¿îµå
+    AudioSource switchSound; //ìŠ¤ìœ„ì¹˜ ì‚¬ìš´ë“œ
 
-    void Awake() 
+    void Awake()
     {
         switchSound = GetComponent<AudioSource>();
-        cloudSwitch = false; //½ºÀ§Ä¡ ºñÈ°¼ºÈ­
-        Operate(); //´« »ı¼º ÀÛµ¿
+        cloudSwitch = false; //ìŠ¤ìœ„ì¹˜ ë¹„í™œì„±í™”
+        Operate(); //ëˆˆ ìƒì„± ì‘ë™
     }
     private void Update()
     {
-        spawnTimer += Time.deltaTime; //»ı¼º Å¸ÀÌ¸Ó¿¡ ½ÇÁ¦ ½Ã°£À» °è¼Ó ´õÇØÁÜ
-        if (spawnTimer > spawnRate && cloudSwitch == true) //»ı¼º Å¸ÀÌ¸Ó°¡ »ı¼º ÁÖ±âº¸´Ù Ä¿Áö°í ½ºÀ§Ä¡°¡ È°¼ºÈ­ »óÅÂ¸é
+        spawnTimer += Time.deltaTime; //ìƒì„± íƒ€ì´ë¨¸ì— ì‹¤ì œ ì‹œê°„ì„ ê³„ì† ë”í•´ì¤Œ
+        if (spawnTimer > spawnRate && cloudSwitch == true) //ìƒì„± íƒ€ì´ë¨¸ê°€ ìƒì„± ì£¼ê¸°ë³´ë‹¤ ì»¤ì§€ê³  ìŠ¤ìœ„ì¹˜ê°€ í™œì„±í™” ìƒíƒœë©´
         {
-            Snow_Spawn1();   //1¹ø ¼ÒÈ¯
-            Invoke("Snow_Spawn3", 0.1f); //3¹øÀ» 0.1ÃÊ µÚ¿¡ ¼ÒÈ¯
-            Invoke("Snow_Spawn2", 0.2f); //2¹øÀ» 0.2ÃÊ µÚ¿¡ ¼ÒÈ¯
-            Operate(); //´« »ı¼º ÀÛµ¿À» ´Ù½Ã ºÒ·¯¿Í¼­ »ı¼ºÅ¸ÀÌ¸Ó ÃÊ±âÈ­ ¹× »ı¼ºÁÖ±â Àç¼³Á¤
+            Snow_Spawn1();   //1ë²ˆ ì†Œí™˜
+            Invoke("Snow_Spawn3", 0.1f); //3ë²ˆì„ 0.1ì´ˆ ë’¤ì— ì†Œí™˜
+            Invoke("Snow_Spawn2", 0.2f); //2ë²ˆì„ 0.2ì´ˆ ë’¤ì— ì†Œí™˜
+            Operate(); //ëˆˆ ìƒì„± ì‘ë™ì„ ë‹¤ì‹œ ë¶ˆëŸ¬ì™€ì„œ ìƒì„±íƒ€ì´ë¨¸ ì´ˆê¸°í™” ë° ìƒì„±ì£¼ê¸° ì¬ì„¤ì •
         }
-        else if (player.rebon == true) //ÇÃ·¹ÀÌ¾î ºÎÈ°½Ã 
+        else if (player.rebon == true) //í”Œë ˆì´ì–´ ë¶€í™œì‹œ 
         {
-            cloudSwitch = false; //½ºÀ§Ä¡ ºñÈ°¼ºÈ­
+            cloudSwitch = false; //ìŠ¤ìœ„ì¹˜ ë¹„í™œì„±í™”
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") //ÁöÁ¤ À§Ä¡¿¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //ì§€ì • ìœ„ì¹˜ì— ë‹¿ìœ¼ë©´
         {
-            cloudSwitch = true; //½ºÀ§Ä¡ È°¼ºÈ­
-            switchSound.Play(); //»ç¿îµå Àç»ı
-        }        
+            cloudSwitch = true; //ìŠ¤ìœ„ì¹˜ í™œì„±í™”
+            switchSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,84 +6,84 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
-    public GameObject[] stageLevel; //½ºÅ×ÀÌÁö ¹è¿­
-    public int stage; //½ºÅ×ÀÌÁö ¹øÈ£
-    public GameObject ClearUI; //Å¬¸®¾î UI
-    public GameObject RetryUI; //¸®Æ®¶óÀÌ UI
-    public Text TimeSecUI; //Å¸ÀÌ¸Ó ÃÊ UI
-    public Text TimeMinUI; //Å¸ÀÌ¸Ó ºĞ UI
-    public float secT; // Å¸ÀÌ¸Ó ÃÊ
-    float minT; //Å¸ÀÌ¸Ó ºĞ
-    public bool timerStart; //Å¸ÀÌ¸Ó ½ÃÀÛ ¿©ºÎ
-    public GameObject playerC; //ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ
-    public FollowCam cam; //Ä«¸Ş¶ó
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
+    public GameObject[] stageLevel; //ìŠ¤í…Œì´ì§€ ë°°ì—´
+    public int stage; //ìŠ¤í…Œì´ì§€ ë²ˆí˜¸
+    public GameObject ClearUI; //í´ë¦¬ì–´ UI
+    public GameObject RetryUI; //ë¦¬íŠ¸ë¼ì´ UI
+    public Text TimeSecUI; //íƒ€ì´ë¨¸ ì´ˆ UI
+    public Text TimeMinUI; //íƒ€ì´ë¨¸ ë¶„ UI
+    public float secT; // íƒ€ì´ë¨¸ ì´ˆ
+    float minT; //íƒ€ì´ë¨¸ ë¶„
+    public bool timerStart; //íƒ€ì´ë¨¸ ì‹œì‘ ì—¬ë¶€
+    public GameObject playerC; //í”Œë ˆì´ì–´ ìºë¦­í„°
+    public FollowCam cam; //ì¹´ë©”ë¼
 
     private void Awake()
     {
-        ClearUI.SetActive(false); //Å¬¸®¾î UI ºñÈ°¼ºÈ­
-        RetryUI.SetActive(false); //¸®Æ®¶óÀÌ UI ºñÈ°¼ºÈ­
-        timerStart = true; // Å¸ÀÌ¸Ó È°¼ºÈ­
+        ClearUI.SetActive(false); //í´ë¦¬ì–´ UI ë¹„í™œì„±í™”
+        RetryUI.SetActive(false); //ë¦¬íŠ¸ë¼ì´ UI ë¹„í™œì„±í™”
+        timerStart = true; // íƒ€ì´ë¨¸ í™œì„±í™”
     }
     void Update()
     {
-        if(timerStart == true) //Å¸ÀÌ¸Ó°¡ ÀÛµ¿ÁßÀÌ¸é
+        if (timerStart == true) //íƒ€ì´ë¨¸ê°€ ì‘ë™ì¤‘ì´ë©´
         {
-            secT += UnityEngine.Time.deltaTime; //½ÇÁ¦½Ã°£À» °¡Á®¿Í¼­ ´õÇØÁÜ
-            TimeSecUI.text = secT.ToString("00.00");  //ÃÊ¿¡ 00.00À» ´õÇØ µğÁöÅĞ ½Ã°èÃ³·³ º¸¿©ÁÜ
-            TimeMinUI.text = minT.ToString() + ":";  //ºĞ¿¡ : ¸¦ Ãß°¡ÇØ ÃÊ¿Í ±¸ºĞ
-            if(secT >= 60) // 60ÃÊ°¡ ³ÑÀ¸¸é
+            secT += UnityEngine.Time.deltaTime; //ì‹¤ì œì‹œê°„ì„ ê°€ì ¸ì™€ì„œ ë”í•´ì¤Œ
+            TimeSecUI.text = secT.ToString("00.00");  //ì´ˆì— 00.00ì„ ë”í•´ ë””ì§€í„¸ ì‹œê³„ì²˜ëŸ¼ ë³´ì—¬ì¤Œ
+            TimeMinUI.text = minT.ToString() + ":";  //ë¶„ì— : ë¥¼ ì¶”ê°€í•´ ì´ˆì™€ êµ¬ë¶„
+            if (secT >= 60) // 60ì´ˆê°€ ë„˜ìœ¼ë©´
             {
-                secT = 0.00f; //ÃÊ¸¦ 0ÃÊ·Î µ¹¸®°í
-                minT++; //1ºĞÀ» ´õÇÔ
+                secT = 0.00f; //ì´ˆë¥¼ 0ì´ˆë¡œ ëŒë¦¬ê³ 
+                minT++; //1ë¶„ì„ ë”í•¨
             }
         }
 
-        if (Input.GetButtonDown("Reset")) //¸®¼Â¹öÆ°P¸¦ ´©¸£¸é
+        if (Input.GetButtonDown("Reset")) //ë¦¬ì…‹ë²„íŠ¼Pë¥¼ ëˆ„ë¥´ë©´
         {
-            SceneManager.LoadScene(0); //¾À 0¹ø ºÒ·¯¿È Áï ÃÊ±âÈ­
+            SceneManager.LoadScene(0); //ì”¬ 0ë²ˆ ë¶ˆëŸ¬ì˜´ ì¦‰ ì´ˆê¸°í™”
         }
     }
-    public void NextLevel() //´ÙÀ½ ·¹º§ ÇÔ¼ö
+    public void NextLevel() //ë‹¤ìŒ ë ˆë²¨ í•¨ìˆ˜
     {
-        ClearUI.SetActive(false); //Å¬¸®¾î UI ºñÈ°¼ºÈ­
-        if(stage < 2) //½ºÅ×ÀÌÁö ¹øÈ£°¡ 2 ¹Ì¸¸ÀÌ¸é
+        ClearUI.SetActive(false); //í´ë¦¬ì–´ UI ë¹„í™œì„±í™”
+        if (stage < 2) //ìŠ¤í…Œì´ì§€ ë²ˆí˜¸ê°€ 2 ë¯¸ë§Œì´ë©´
         {
-            stageLevel[stage].SetActive(false); //ÇöÀç ½ºÅ×ÀÌÁö¸¦ ºñÈ°¼ºÈ­
-            stage++; //½ºÅ×ÀÌÁö ¹øÈ£ 1À»´õÇÔ
-            stageLevel[stage].SetActive(true); //ÇØ´ç ½ºÅ×ÀÌÁö¸¦ È°¼ºÈ­
-            player.transform.position = player.startPos; //ÇÃ·¹ÀÌ¾î À§Ä¡ ½ºÅ¸Æ® À§Ä¡·Î º¯°æ
-            player.rigid.velocity = Vector2.zero; //ÇÃ·¹ÀÌ¾î¿¡°Ô ºÙÀº °¡¼Óµµ ÃÊ±âÈ­
+            stageLevel[stage].SetActive(false); //í˜„ì¬ ìŠ¤í…Œì´ì§€ë¥¼ ë¹„í™œì„±í™”
+            stage++; //ìŠ¤í…Œì´ì§€ ë²ˆí˜¸ 1ì„ë”í•¨
+            stageLevel[stage].SetActive(true); //í•´ë‹¹ ìŠ¤í…Œì´ì§€ë¥¼ í™œì„±í™”
+            player.transform.position = player.startPos; //í”Œë ˆì´ì–´ ìœ„ì¹˜ ìŠ¤íƒ€íŠ¸ ìœ„ì¹˜ë¡œ ë³€ê²½
+            player.rigid.velocity = Vector2.zero; //í”Œë ˆì´ì–´ì—ê²Œ ë¶™ì€ ê°€ì†ë„ ì´ˆê¸°í™”
             cam.StopCoroutine("NextCam");
             cam.StartCoroutine("NextCam");
-            player.savePos = player.startPos; //ÇÃ·¹ÀÌ¾î ¼¼ÀÌºê Æ÷ÀÎÆ® ½ºÅ¸Æ® À§Ä¡·Î º¯°æ
-            timerStart = true; //Å¸ÀÌ¸Ó È°¼ºÈ­
+            player.savePos = player.startPos; //í”Œë ˆì´ì–´ ì„¸ì´ë¸Œ í¬ì¸íŠ¸ ìŠ¤íƒ€íŠ¸ ìœ„ì¹˜ë¡œ ë³€ê²½
+            timerStart = true; //íƒ€ì´ë¨¸ í™œì„±í™”
 
-            if (stage == 2) //½ºÅ×ÀÌÁö ¹øÈ£°¡ 2¹øÀÌ¸é (3½ºÅ×ÀÌÁö)
+            if (stage == 2) //ìŠ¤í…Œì´ì§€ ë²ˆí˜¸ê°€ 2ë²ˆì´ë©´ (3ìŠ¤í…Œì´ì§€)
             {
-                //ÇØ´ç ½ºÅ×ÀÌÁö¿¡ Àû¿ëÇÒ Áß·Â°ú Á¡ÇÁ Á¦ÇÑ ¼ö¸¦ ¼öÁ¤ 
-                player.playerGravity = player.spaceGravity; 
+                //í•´ë‹¹ ìŠ¤í…Œì´ì§€ì— ì ìš©í•  ì¤‘ë ¥ê³¼ ì í”„ ì œí•œ ìˆ˜ë¥¼ ìˆ˜ì • 
+                player.playerGravity = player.spaceGravity;
                 player.rigid.gravityScale = player.playerGravity;
                 player.jumpLimit = 1;
             }
             else
-                return; 
+                return;
 
         }
 
         else
         {
-            stageLevel[stage].SetActive(false); //ÇöÀç ½ºÅ×ÀÌÁö¸¦ ºñÈ°¼ºÈ­
-            stageLevel[4].SetActive(true); //Å¬¸®¾î È­¸é ºÒ·¯¿È
-            playerC.SetActive(false); //Ä³¸¯ÅÍ ºñÈ°¼ºÈ­
+            stageLevel[stage].SetActive(false); //í˜„ì¬ ìŠ¤í…Œì´ì§€ë¥¼ ë¹„í™œì„±í™”
+            stageLevel[4].SetActive(true); //í´ë¦¬ì–´ í™”ë©´ ë¶ˆëŸ¬ì˜´
+            playerC.SetActive(false); //ìºë¦­í„° ë¹„í™œì„±í™”
         }
 
     }
-    public void Retry() //UI¸¦ ÅëÇØ »ç¿ëÇÒ Retry ÇÃ·¹ÀÌ¾î¿¡°Ô ÀÖ´Â ºÎÈ° ÄÚ·çÆ¾ ºÒ·¯¿È
+    public void Retry() //UIë¥¼ í†µí•´ ì‚¬ìš©í•  Retry í”Œë ˆì´ì–´ì—ê²Œ ìˆëŠ” ë¶€í™œ ì½”ë£¨í‹´ ë¶ˆëŸ¬ì˜´
     {
-        //ºÎÈ° ÄÚ·çÆ¾
-        player.StopCoroutine("Rebon"); 
+        //ë¶€í™œ ì½”ë£¨í‹´
+        player.StopCoroutine("Rebon");
         player.StartCoroutine("Rebon");
     }
-   
+
 }

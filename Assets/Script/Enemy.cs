@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Rigidbody2D enemyRigid; //¸ó½ºÅÍ ¹°¸®ÀÛ¿ë
-    Animator enemyAni; //¸ó½ºÅÍ ¾Ö´Ï¸ŞÀÌ¼Ç
-    SpriteRenderer enemyRen; //¸ó½ºÅÍ ÀÌ¹ÌÁö
-    public int enemyMove; // ¸ó½ºÅÍ°¡ ¿òÁ÷ÀÌ´Â ¹æÇâÀ» Á¤ÇÒ º¯¼ö
+    Rigidbody2D enemyRigid; //ëª¬ìŠ¤í„° ë¬¼ë¦¬ì‘ìš©
+    Animator enemyAni; //ëª¬ìŠ¤í„° ì• ë‹ˆë©”ì´ì…˜
+    SpriteRenderer enemyRen; //ëª¬ìŠ¤í„° ì´ë¯¸ì§€
+    public int enemyMove; // ëª¬ìŠ¤í„°ê°€ ì›€ì§ì´ëŠ” ë°©í–¥ì„ ì •í•  ë³€ìˆ˜
 
     private void Awake()
     {
@@ -15,44 +15,44 @@ public class Enemy : MonoBehaviour
         enemyAni = GetComponent<Animator>();
         enemyRen = GetComponent<SpriteRenderer>();
 
-        Think(); //¸ó½ºÅÍ ¿òÁ÷ÀÓ
+        Think(); //ëª¬ìŠ¤í„° ì›€ì§ì„
     }
     private void FixedUpdate()
     {
-        enemyRigid.velocity = new Vector2(enemyMove, enemyRigid.velocity.y);  //¸ó½ºÅÍ¸¦ °è¼ÓÇØ¼­ ÀÌµ¿ enemyMove°¡ 1ÀÌ¸é ¿À¸¥ÂÊ -1ÀÌ¸é ¿ŞÂÊ 0ÀÌ¸é Á¤Áö
+        enemyRigid.velocity = new Vector2(enemyMove, enemyRigid.velocity.y);  //ëª¬ìŠ¤í„°ë¥¼ ê³„ì†í•´ì„œ ì´ë™ enemyMoveê°€ 1ì´ë©´ ì˜¤ë¥¸ìª½ -1ì´ë©´ ì™¼ìª½ 0ì´ë©´ ì •ì§€
 
-        Vector2 frontVec = new Vector2(enemyRigid.position.x + enemyMove * 0.3f, enemyRigid.position.y);  //¸ó½ºÅÍ°¡ À§Ä¡ÇÑ xÁÂÇ¥¿¡ enemyMove¿Í 0.3À» °öÇÏ¿© ´õÇÑ À§Ä¡ Áï ¸ó½ºÅÍ°¡ ÀÌµ¿ÇÏ´Â ¹æÇâ Á¤¸éÂÊ¿¡ frontVec °ªÀ» º¯¼ö·Î ÀâÀ½
-        //Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0)); //·¹ÀÌÄ³½ºÆ®¸¦ ´«À¸·Î º¸¸é¼­ °ªÀ» Á¶Á¤ÇÏ±â À§ÇØ µğ¹ö±×·Î Ç¥½Ã
+        Vector2 frontVec = new Vector2(enemyRigid.position.x + enemyMove * 0.3f, enemyRigid.position.y);  //ëª¬ìŠ¤í„°ê°€ ìœ„ì¹˜í•œ xì¢Œí‘œì— enemyMoveì™€ 0.3ì„ ê³±í•˜ì—¬ ë”í•œ ìœ„ì¹˜ ì¦‰ ëª¬ìŠ¤í„°ê°€ ì´ë™í•˜ëŠ” ë°©í–¥ ì •ë©´ìª½ì— frontVec ê°’ì„ ë³€ìˆ˜ë¡œ ì¡ìŒ
+        //Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0)); //ë ˆì´ìºìŠ¤íŠ¸ë¥¼ ëˆˆìœ¼ë¡œ ë³´ë©´ì„œ ê°’ì„ ì¡°ì •í•˜ê¸° ìœ„í•´ ë””ë²„ê·¸ë¡œ í‘œì‹œ
 
-        RaycastHit2D rayhit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Floor")); //·¹ÀÌÄ³½ºÆ®¸¦ frontVec°ª¿¡ ¾Æ·¡¹æÇâÀ¸·Î µÎ°í Layer°¡ ¹Ù´ÚÀÎ°ÍÀ» °¨ÁöÇÏ°Ô ÇÔ
-        
-        if(rayhit.collider == null)  //À§¿¡ Á¤ÇÑ ¹Ù´ÚÀ» °¨ÁöÇÏ´Â ·¹ÀÌÄ³½ºÆ®°¡ Äİ¶óÀÌ´õ¸¦ ¹ß°ßÇÏÁö ¸øÇÏ¸é (¹Ù´ÚÀÌ ¾øÀ¸¸é)  
+        RaycastHit2D rayhit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Floor")); //ë ˆì´ìºìŠ¤íŠ¸ë¥¼ frontVecê°’ì— ì•„ë˜ë°©í–¥ìœ¼ë¡œ ë‘ê³  Layerê°€ ë°”ë‹¥ì¸ê²ƒì„ ê°ì§€í•˜ê²Œ í•¨
+
+        if (rayhit.collider == null)  //ìœ„ì— ì •í•œ ë°”ë‹¥ì„ ê°ì§€í•˜ëŠ” ë ˆì´ìºìŠ¤íŠ¸ê°€ ì½œë¼ì´ë”ë¥¼ ë°œê²¬í•˜ì§€ ëª»í•˜ë©´ (ë°”ë‹¥ì´ ì—†ìœ¼ë©´)  
         {
-            Turn(); //¹æÇâ ÀüÈ¯
+            Turn(); //ë°©í–¥ ì „í™˜
         }
     }
 
 
-    void Think() //¸ó½ºÅÍ ¿òÁ÷ÀÓÀ» °è¼Ó º¯È­ ½ÃÄÑÁÖ´Â ÇÔ¼ö, ÀÚ±âÀÚ½ÅÀÇ ÇÔ¼ö¸¦ ºÒ·¯¿À´Â Àç±ÍÇÔ¼ö
+    void Think() //ëª¬ìŠ¤í„° ì›€ì§ì„ì„ ê³„ì† ë³€í™” ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜, ìê¸°ìì‹ ì˜ í•¨ìˆ˜ë¥¼ ë¶ˆëŸ¬ì˜¤ëŠ” ì¬ê·€í•¨ìˆ˜
     {
-        enemyMove = Random.Range(-1, 2); //-1,0,1 »çÀÌ ·£´ıÀ¸·Î ¼ıÀÚ¸¦ »ÌÀ½
-        enemyAni.SetInteger("EnemyRun", enemyMove); //¿òÁ÷ÀÌ´Â ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ºÒ·¯¿È
-        if (enemyMove != 0) //¸ó½ºÅÍ ¿òÁ÷ÀÓÀÌ 0ÀÌ¾Æ´Ï¸é
-            enemyRen.flipX = enemyMove == 1; //¹æÇâ¿¡ ¸Â°Ô ÁÂ¿ì¹İÀü
+        enemyMove = Random.Range(-1, 2); //-1,0,1 ì‚¬ì´ ëœë¤ìœ¼ë¡œ ìˆ«ìë¥¼ ë½‘ìŒ
+        enemyAni.SetInteger("EnemyRun", enemyMove); //ì›€ì§ì´ëŠ” ì• ë‹ˆë©”ì´ì…˜ì„ ë¶ˆëŸ¬ì˜´
+        if (enemyMove != 0) //ëª¬ìŠ¤í„° ì›€ì§ì„ì´ 0ì´ì•„ë‹ˆë©´
+            enemyRen.flipX = enemyMove == 1; //ë°©í–¥ì— ë§ê²Œ ì¢Œìš°ë°˜ì „
 
-        float nextThink = Random.Range(2, 5); //·£´ıÇÑ ½Ã°£À¸·Î ´ÙÀ½ ¹æÇâÀ» Àâ¾ÆÁÜ
-        
-        Invoke("Think", nextThink);  // À§¿¡¼­ Àâ¾ÆÁØ ½Ã°£À» ¹İ¿µÇÏ¿© ´Ù½Ã ½ÇÇà(¹«ÇÑ ¹İº¹)
+        float nextThink = Random.Range(2, 5); //ëœë¤í•œ ì‹œê°„ìœ¼ë¡œ ë‹¤ìŒ ë°©í–¥ì„ ì¡ì•„ì¤Œ
+
+        Invoke("Think", nextThink);  // ìœ„ì—ì„œ ì¡ì•„ì¤€ ì‹œê°„ì„ ë°˜ì˜í•˜ì—¬ ë‹¤ì‹œ ì‹¤í–‰(ë¬´í•œ ë°˜ë³µ)
     }
 
-    void Turn() //¹æÇâ ÀüÈ¯ ÇÔ¼ö
+    void Turn() //ë°©í–¥ ì „í™˜ í•¨ìˆ˜
     {
-        enemyMove *= -1; //ÇöÀç ÀÌµ¿ ¹æÇâ¿¡ °öÇÏ±â -1À» ÇÏ¿© ¹İ´ë¹æÇâÀ¸·Î ÀÌµ¿ÇÏ°Ô ¸¸µë
-        enemyRen.flipX = enemyMove == 1; //¹æÇâ¿¡ ¸Â°Ô ÁÂ¿ì¹İÀü
+        enemyMove *= -1; //í˜„ì¬ ì´ë™ ë°©í–¥ì— ê³±í•˜ê¸° -1ì„ í•˜ì—¬ ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ê²Œ ë§Œë“¬
+        enemyRen.flipX = enemyMove == 1; //ë°©í–¥ì— ë§ê²Œ ì¢Œìš°ë°˜ì „
 
-        CancelInvoke(); //ÀÌÀü¿¡ ½ÇÇàµÇ¾îÀÖ´Â Invoke ºñÈ°¼ºÈ­
-        Invoke("Think", 3); //3ÃÊÈÄ ´Ù½Ã ºÒ·¯¿È
+        CancelInvoke(); //ì´ì „ì— ì‹¤í–‰ë˜ì–´ìˆëŠ” Invoke ë¹„í™œì„±í™”
+        Invoke("Think", 3); //3ì´ˆí›„ ë‹¤ì‹œ ë¶ˆëŸ¬ì˜´
     }
 
-    
+
 }

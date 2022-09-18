@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         playerInfo = GetComponent<PlayerInfo>();
         jumpSource = GetComponent<AudioSource>();
     }
-     
+
 
     private void FixedUpdate()
     {
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
             //플레이어 오른쪽으로 움직이는 속도가 최고 스피드를 넘으면
             if (playerRigid.velocity.x > playerInfo.maxSpeed * Time.deltaTime)
                 //플레이어가 움직이는 속도가 최고스피드에 맞춰져서 움직인다 (가속도가 너무 높아지는것을 방지)
-                playerRigid.velocity = new Vector2(playerInfo.maxSpeed * Time.deltaTime, playerRigid.velocity.y); 
+                playerRigid.velocity = new Vector2(playerInfo.maxSpeed * Time.deltaTime, playerRigid.velocity.y);
 
             else if (playerRigid.velocity.x < playerInfo.maxSpeed * Time.deltaTime * (-1)) //왼쪽 방향
                 playerRigid.velocity = new Vector2(playerInfo.maxSpeed * Time.deltaTime * (-1), playerRigid.velocity.y);
@@ -50,18 +50,18 @@ public class PlayerController : MonoBehaviour
                     {
                         playerInfo.jumpCnt = 0; //점프 카운트 초기화
                     }
-            }                
+            }
 
         }
-        
+
     }
 
     private void Update()
     {
-        if(playerInfo.isdead != true) //플레이어가 사망상태가 비활성화면
+        if (playerInfo.isdead != true) //플레이어가 사망상태가 비활성화면
         {
             //점프키를 누르고 플레이어 점프 카운트가 점프 가능한 수치보다 낮으면
-            if (Input.GetButtonDown("Jump") && playerInfo.jumpCnt < playerInfo.jumpLimit) 
+            if (Input.GetButtonDown("Jump") && playerInfo.jumpCnt < playerInfo.jumpLimit)
             {
                 var velo_y = playerRigid.velocity;  //어느 상황에서도 같은 점프력을 가질 수 있게 
                 velo_y.y = 0; //수직으로 가속도를 0으로 잡는 변수를 잡아줌
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonUp("Horizontal")) //좌우 방향키를 눌렀다 때면 
                 //수평 가속도에 0.5를 곱해줘서 어느정도 마찰이 있다면 미끄러짐을 방지 수직 가속도는 현재가속도를 그대로 반영
-                playerRigid.velocity = new Vector2(playerRigid.velocity.normalized.x * 0.5f, playerRigid.velocity.y); 
+                playerRigid.velocity = new Vector2(playerRigid.velocity.normalized.x * 0.5f, playerRigid.velocity.y);
         }
     }
 }

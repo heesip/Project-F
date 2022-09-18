@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hide_Obj : MonoBehaviour
 {
-    SpriteRenderer objRen; // ¿ÀºêÁ§Æ® ÀÌ¹ÌÁö
-    PolygonCollider2D polygonCol; //¹°¸®Ãæµ¹ ÀÛ¿ëÀ» ÇÒ Äİ¶óÀÌ´õ
-    AudioSource  findSound; //¿ÀºêÁ§Æ® ¹ß°ß »ç¿îµå
-    CapsuleCollider2D capCol; //¼¾¼­ ÀÛ¿ëÀ» ÇÒ Äİ¶óÀÌ´õ
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
+    SpriteRenderer objRen; // ì˜¤ë¸Œì íŠ¸ ì´ë¯¸ì§€
+    PolygonCollider2D polygonCol; //ë¬¼ë¦¬ì¶©ëŒ ì‘ìš©ì„ í•  ì½œë¼ì´ë”
+    AudioSource findSound; //ì˜¤ë¸Œì íŠ¸ ë°œê²¬ ì‚¬ìš´ë“œ
+    CapsuleCollider2D capCol; //ì„¼ì„œ ì‘ìš©ì„ í•  ì½œë¼ì´ë”
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
 
     void Awake()
     {
@@ -17,32 +17,32 @@ public class Hide_Obj : MonoBehaviour
         capCol = GetComponent<CapsuleCollider2D>();
         findSound = GetComponent<AudioSource>();
 
-        objRen.enabled = false; // ÀÌ¹ÌÁö ºñÈ°¼ºÈ­
-        polygonCol.enabled = false; // ¹°¸® Ãæµ¹ Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
-        capCol.enabled = true; //¼¾¼­ Äİ¶óÀÌ´õ È°¼ºÈ­
+        objRen.enabled = false; // ì´ë¯¸ì§€ ë¹„í™œì„±í™”
+        polygonCol.enabled = false; // ë¬¼ë¦¬ ì¶©ëŒ ì½œë¼ì´ë” ë¹„í™œì„±í™”
+        capCol.enabled = true; //ì„¼ì„œ ì½œë¼ì´ë” í™œì„±í™”
 
     }
 
     void Update()
     {
-        if(player.rebon == true) //ÇÃ·¹ÀÌ¾î ºÎÈ°½Ã
+        if (player.rebon == true) //í”Œë ˆì´ì–´ ë¶€í™œì‹œ
         {
-            //°ÔÀÓ ½ÃÀÛ½Ã ¹Ú½º ÃÊ±â°ªÀ¸·Î º¯°æ
-            objRen.enabled = false; // ÀÌ¹ÌÁö ºñÈ°¼ºÈ­
-            polygonCol.enabled = false; // ¹°¸® Ãæµ¹ Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
-            capCol.enabled = true; //¼¾¼­ Äİ¶óÀÌ´õ È°¼ºÈ­
+            //ê²Œì„ ì‹œì‘ì‹œ ë°•ìŠ¤ ì´ˆê¸°ê°’ìœ¼ë¡œ ë³€ê²½
+            objRen.enabled = false; // ì´ë¯¸ì§€ ë¹„í™œì„±í™”
+            polygonCol.enabled = false; // ë¬¼ë¦¬ ì¶©ëŒ ì½œë¼ì´ë” ë¹„í™œì„±í™”
+            capCol.enabled = true; //ì„¼ì„œ ì½œë¼ì´ë” í™œì„±í™”
 
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Head") //¸Ó¸®°¡ ´êÀ¸¸é
+        if (collision.gameObject.tag == "Head") //ë¨¸ë¦¬ê°€ ë‹¿ìœ¼ë©´
         {
-            objRen.enabled = true; //ÀÌ¹ÌÁö È°¼ºÈ­
-            polygonCol.enabled = true; //¹°¸® Ãæµ¹ Äİ¶óÀÌ´õ È°¼ºÈ­
-            capCol.enabled = false; //¼¾¼­ Äİ¶óÀÌ´õ ºñÈ°¼ºÈ­
-            findSound.Play(); //»ç¿îµå Àç»ı
+            objRen.enabled = true; //ì´ë¯¸ì§€ í™œì„±í™”
+            polygonCol.enabled = true; //ë¬¼ë¦¬ ì¶©ëŒ ì½œë¼ì´ë” í™œì„±í™”
+            capCol.enabled = false; //ì„¼ì„œ ì½œë¼ì´ë” ë¹„í™œì„±í™”
+            findSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
         }
 
     }

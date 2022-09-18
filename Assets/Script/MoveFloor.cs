@@ -1,53 +1,53 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveFloor : MonoBehaviour
 {
-    public Vector2 start; //½ÃÀÛ ÁöÁ¡
-    public Vector2 end; //µµÂø ÁöÁ¡
-    public Vector2 target; //¸ñÇ¥ ÁöÁ¡
-    public bool moveSwitch; //¿òÁ÷ÀÌ´Â ¹ßÆÇ ÀÛµ¿ ½ºÀ§Ä¡
-    public float floorSpeed; //¹ßÆÇ¿òÁ÷ÀÌ´Â ¼Óµµ
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
+    public Vector2 start; //ì‹œì‘ ì§€ì 
+    public Vector2 end; //ë„ì°© ì§€ì 
+    public Vector2 target; //ëª©í‘œ ì§€ì 
+    public bool moveSwitch; //ì›€ì§ì´ëŠ” ë°œíŒ ì‘ë™ ìŠ¤ìœ„ì¹˜
+    public float floorSpeed; //ë°œíŒì›€ì§ì´ëŠ” ì†ë„
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
 
     void Awake()
     {
-        moveSwitch = false; //ÀÛµ¿ OFF
-        transform.position = start; //À§Ä¡¸¦ ½ÃÀÛÁöÁ¡À¸·Î ÀÌµ¿
-        target = end; //¸ñÇ¥ÁöÁ¡À» µµÂøÁöÁ¡À¸·Î ÁöÁ¤
+        moveSwitch = false; //ì‘ë™ OFF
+        transform.position = start; //ìœ„ì¹˜ë¥¼ ì‹œì‘ì§€ì ìœ¼ë¡œ ì´ë™
+        target = end; //ëª©í‘œì§€ì ì„ ë„ì°©ì§€ì ìœ¼ë¡œ ì§€ì •
     }
 
     void Update()
     {
-        if (player.rebon == true) //ÇÃ·¹ÀÌ¾î°¡ ºÎÈ°½Ã
+        if (player.rebon == true) //í”Œë ˆì´ì–´ê°€ ë¶€í™œì‹œ
         {
-            moveSwitch = false; //½ºÀ§Ä¡ ºñÈ°¼ºÈ­
-            transform.position = start; //À§Ä¡¸¦ ½ÃÀÛÁöÁ¡À¸·Î ÀÌµ¿
-            target = end; //¸ñÇ¥ÁöÁ¡À» µµÂøÁöÁ¡À¸·Î ÁöÁ¤
+            moveSwitch = false; //ìŠ¤ìœ„ì¹˜ ë¹„í™œì„±í™”
+            transform.position = start; //ìœ„ì¹˜ë¥¼ ì‹œì‘ì§€ì ìœ¼ë¡œ ì´ë™
+            target = end; //ëª©í‘œì§€ì ì„ ë„ì°©ì§€ì ìœ¼ë¡œ ì§€ì •
         }
     }
     private void FixedUpdate()
     {
-        if (moveSwitch == true) //½ºÀ§Ä¡ È°¼ºÈ­½Ã
+        if (moveSwitch == true) //ìŠ¤ìœ„ì¹˜ í™œì„±í™”ì‹œ
         {
-            //¸ñÇ¥ÁöÁ¡À» ÇâÇØ ÀÌµ¿
+            //ëª©í‘œì§€ì ì„ í–¥í•´ ì´ë™
             transform.position = Vector2.MoveTowards(transform.position, target, floorSpeed * Time.deltaTime);
         }
 
-        if (Vector2.Distance(transform.position, target) <= 0.05f) //¸ñÇ¥ÁöÁ¡¿¡ °Å¸®°¡ 0.05º¸´Ù °¡±î¿ö Áö¸é
+        if (Vector2.Distance(transform.position, target) <= 0.05f) //ëª©í‘œì§€ì ì— ê±°ë¦¬ê°€ 0.05ë³´ë‹¤ ê°€ê¹Œì›Œ ì§€ë©´
         {
-            if (target == end) //¸ñÇ¥ÁöÁ¡ÀÌ µµÂøÁöÁ¡ÀÌ¸é
-                target = start; // ¸ñÇ¥ÁöÁ¡À» Ãâ¹ßÁöÁ¡À¸·Î ¼³Á¤
-            else // ¾Æ´Ñ °æ¿ì
-                target = end; // ¸ñÇ¥ÁöÁ¡À» µµÂøÁöÁ¡À¸·Î ¼³Á¤
+            if (target == end) //ëª©í‘œì§€ì ì´ ë„ì°©ì§€ì ì´ë©´
+                target = start; // ëª©í‘œì§€ì ì„ ì¶œë°œì§€ì ìœ¼ë¡œ ì„¤ì •
+            else // ì•„ë‹Œ ê²½ìš°
+                target = end; // ëª©í‘œì§€ì ì„ ë„ì°©ì§€ì ìœ¼ë¡œ ì„¤ì •
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player") //¹ßÆÇÀÌ ÇÃ·¹ÀÌ¾î¿Í ´êÀ¸¸é
+        if (collision.gameObject.tag == "Player") //ë°œíŒì´ í”Œë ˆì´ì–´ì™€ ë‹¿ìœ¼ë©´
         {
-            moveSwitch = true; //½ºÀ§Ä¡ È°¼ºÈ­
+            moveSwitch = true; //ìŠ¤ìœ„ì¹˜ í™œì„±í™”
         }
     }
 }

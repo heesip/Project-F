@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap_A : Trap_Factory
 {
-    AudioSource operateSound; //ÇÔÁ¤ ÀÛµ¿ »ç¿îµå
+    AudioSource operateSound; //í•¨ì • ì‘ë™ ì‚¬ìš´ë“œ
 
     private void Awake()
     {
@@ -13,19 +13,19 @@ public class Trap_A : Trap_Factory
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") //ÇÔÁ¤¿¡ ÁöÁ¤µÈ Äİ¶óÀÌ´õ¿¡ ÇÃ·¹ÀÌ¾î°¡ µé¾î¿À¸é
+        if (collision.gameObject.tag == "Player") //í•¨ì •ì— ì§€ì •ëœ ì½œë¼ì´ë”ì— í”Œë ˆì´ì–´ê°€ ë“¤ì–´ì˜¤ë©´
         {
-            operate = true; //½ºÀ§Ä¡ È°¼ºÈ­
-            operateSound.Play(); //»ç¿îµå ½ÇÇà
+            operate = true; //ìŠ¤ìœ„ì¹˜ í™œì„±í™”
+            operateSound.Play(); //ì‚¬ìš´ë“œ ì‹¤í–‰
         }
     }
 
     private void Update()
     {
-        if (player.rebon == true) //Ä³¸¯ÅÍ°¡ ºÎÈ°½Ã 
-            Trap_OFF(); //ÇÔÁ¤ ºñÈ°¼ºÈ­
+        if (player.rebon == true) //ìºë¦­í„°ê°€ ë¶€í™œì‹œ 
+            Trap_OFF(); //í•¨ì • ë¹„í™œì„±í™”
 
-        else if (operate == true) //ÇÔÁ¤ ½ºÀ§Ä¡ È°¼ºÈ­½Ã
-            Trap_ON(); //ÇÔÁ¤ È°¼ºÈ­
+        else if (operate == true) //í•¨ì • ìŠ¤ìœ„ì¹˜ í™œì„±í™”ì‹œ
+            Trap_ON(); //í•¨ì • í™œì„±í™”
     }
 }

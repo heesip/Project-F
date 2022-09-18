@@ -1,28 +1,28 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hide_jumpBox : MonoBehaviour
 {
-    public GameObject jumpBox; //Á¡ÇÁ¹Ú½º ¿ÀºêÁ§Æ®
-    public PlayerInfo player; //ÇÃ·¹ÀÌ¾î Á¤º¸
-    AudioSource switchSound; //½ºÀ§Ä¡ »ç¿îµå
+    public GameObject jumpBox; //ì í”„ë°•ìŠ¤ ì˜¤ë¸Œì íŠ¸
+    public PlayerInfo player; //í”Œë ˆì´ì–´ ì •ë³´
+    AudioSource switchSound; //ìŠ¤ìœ„ì¹˜ ì‚¬ìš´ë“œ
 
     private void Awake()
     {
         switchSound = GetComponent<AudioSource>();
-        jumpBox.SetActive(false); //Á¡ÇÁ¹Ú½º ºñÈ°¼ºÈ­
+        jumpBox.SetActive(false); //ì í”„ë°•ìŠ¤ ë¹„í™œì„±í™”
     }
     private void Update()
     {
-        if(player.rebon == true) //ÇÃ·¹ÀÌ¾î ºÎÈ°½Ã
+        if (player.rebon == true) //í”Œë ˆì´ì–´ ë¶€í™œì‹œ
         {
-            jumpBox.SetActive(false); //Á¡ÇÁ¹Ú½º ºñÈ°¼ºÈ­
+            jumpBox.SetActive(false); //ì í”„ë°•ìŠ¤ ë¹„í™œì„±í™”
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switchSound.Play(); //»ç¿îµå Àç»ı
-        jumpBox.SetActive(true); //Á¡ÇÁ ¹Ú½º È°¼ºÈ­
+        switchSound.Play(); //ì‚¬ìš´ë“œ ì¬ìƒ
+        jumpBox.SetActive(true); //ì í”„ ë°•ìŠ¤ í™œì„±í™”
     }
 }

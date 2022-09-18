@@ -1,17 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap_D : Trap_Factory
 {
-    //ÇÃ·¹ÀÌ¾î°¡ ºÎÈ°ÇØµµ ÃÊ±âÈ­ µÇÁö ¾Ê´Â Àå¾Ö¹°
+    //í”Œë ˆì´ì–´ê°€ ë¶€í™œí•´ë„ ì´ˆê¸°í™” ë˜ì§€ ì•ŠëŠ” ì¥ì• ë¬¼
     private void Update()
     {
-        Trap_ON(); //ÇÔÁ¤ È°¼ºÈ­
-        transform.Rotate(0, 0, -300 * Time.deltaTime); //È¸ÀüÇÏ¸ç ÀÌµ¿
+        Trap_ON(); //í•¨ì • í™œì„±í™”
+        transform.Rotate(0, 0, -300 * Time.deltaTime); //íšŒì „í•˜ë©° ì´ë™
 
-        if (transform.position == target) //¸ñÇ¥¿¡ µµÂøÇßÀ»¶§ 
-            transform.position = ready; //ÇÔÁ¤ À§Ä¡¸¦ ½ÃÀÛ À§Ä¡·Î ÀÌµ¿
+        if (transform.position == target) //ëª©í‘œì— ë„ì°©í–ˆì„ë•Œ 
+            transform.position = ready; //í•¨ì • ìœ„ì¹˜ë¥¼ ì‹œì‘ ìœ„ì¹˜ë¡œ ì´ë™
     }
-
 }

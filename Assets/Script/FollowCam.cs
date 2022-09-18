@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class FollowCam : MonoBehaviour
 
         target = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + offset);
         transform.position = Vector3.Lerp(transform.position, target, followSpeed * Time.deltaTime);
-        
+
     }
 
     public IEnumerator NextCam()

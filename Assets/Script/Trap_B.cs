@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +6,11 @@ public class Trap_B : Trap_Factory
 {
     private void Update()
     {
-        if (player.rebon == true || transform.position == target) //Ä³¸¯ÅÍ°¡ ºÎÈ°½Ã È¤Àº Å¸°Ù¿¡ À§Ä¡ÇßÀ»¶§ 
-            transform.position = ready; //ÇÔÁ¤ À§Ä¡¸¦ ½ÃÀÛ À§Ä¡·Î ÀÌµ¿
-        else //À§¿Í°°Àº »óÈ²ÀÌ ¾Æ´Ï¶ó¸é 
+        if (player.rebon == true || transform.position == target) //ìºë¦­í„°ê°€ ë¶€í™œì‹œ í˜¹ì€ íƒ€ê²Ÿì— ìœ„ì¹˜í–ˆì„ë•Œ 
+            transform.position = ready; //í•¨ì • ìœ„ì¹˜ë¥¼ ì‹œì‘ ìœ„ì¹˜ë¡œ ì´ë™
+        else //ìœ„ì™€ê°™ì€ ìƒí™©ì´ ì•„ë‹ˆë¼ë©´ 
         {
-            Trap_ON(); //ÇÔÁ¤ È°¼ºÈ­
+            Trap_ON(); //í•¨ì • í™œì„±í™”
         }
-
     }
-
 }
