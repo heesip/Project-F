@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+    private void Update() //(패치할때 함수로 바꾸고 하나에서 돌릴것,,, )
     {
         if (playerInfo.isdead != true) //플레이어가 사망상태가 비활성화면
         {

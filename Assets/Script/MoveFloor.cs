@@ -18,7 +18,7 @@ public class MoveFloor : MonoBehaviour
         target = end; //목표지점을 도착지점으로 지정
     }
 
-    void Update()
+    void Update() //(이벤트로 변경할필요있으..)
     {
         if (player.rebon == true) //플레이어가 부활시
         {
